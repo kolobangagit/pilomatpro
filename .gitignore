@@ -14,7 +14,6 @@ templates/themes_markup/*
 channels_panel/
 .vscode/settings.json
 .env
-static/media
 # Django #
 *.log
 *.pot
