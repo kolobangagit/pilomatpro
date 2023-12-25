@@ -27,13 +27,13 @@ SECRET_KEY = 'django-insecure-z+$&mh#54ebkge%i&*6o!7335wkej7+4sas)p#wxncqispld!^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pilomatpro.ru']
+ALLOWED_HOSTS = ['pilomatpro.ru', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'grappelli',
+    # 'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
