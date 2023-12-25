@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block secondary_nav %}
+<div class="cd-secondary-nav">
+    <nav>
+        <div id="cd-logo">
+            <a href="/"><img style="width: 60px;z-index: 10;" src="{% static 'img/logo.png'%}" alt="Logo"></a>
+            <p>ТД Пиломатериал </p>
+        </div>
+    </nav>
+</div>
+{% endblock secondary_nav %}
+
+
+{% block heading %}
+<div class="heading">
+    <h3><strong>Пиломатериалы</strong> <br>
+                 ТД «Пиломатериал» </h3>
+    <p>Продажа пиломатериала в России – ТД «Пиломатериал». <br>
+Сотрудничаем напрямую с ведущими лесными хозяйствами и продаем качественную продукцию. <br>
+Весь товар соответствует строгим стандартам ГОСТ.</p>
+      <div class="divider"></div>
+
+  </div>
+    
+{% endblock heading %}
+    
+
+{% block service %}
+<div class="heading">
+<div class="service">
+    <ul>
+        {% for item in locations  %}
+                             <li><i class="fa fa-map-marker fa-fw"></i> <a href="{{ item.get_absolute_url }}" title="Киров Лес Оптовые продажи"> {{ item.name }}</a></li>
+                          {% endfor %}
+    </ul>
+                      <div class="divider"></div>
+
+  </div>
+</div>
+    
+{% endblock service %}
+    

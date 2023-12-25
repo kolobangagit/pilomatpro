@@ -1,0 +1,25 @@
+{% load static store_tags %}
+<header id="header">
+	<div id="nav" class="menu-wrap">
+		<a id="navBtn" class="nav-btn fa fa-bars" href="{{ host }}"></a>
+		<nav class="header-menu">
+			<div class="logo">
+				<div class="header_adress">
+					<a href="{{ host}}/{{ slug }}"><img src="{% static 'img/logo.png'%}" alt="ТД Пиломатериал  {% if slug %} {{ slug|get_name_location }}{% else %} {{ slug_city|get_city_name }} {% endif %}"></a>
+					<p>ТД «Пиломатериал» </p> 
+					<ul>
+						<li><i class="fa fa-map-marker fa-fw"></i> {% if slug %} {{ slug|get_name_location }}{% else %} {{ slug_city|get_city_name }} {% endif %},  </li>
+						<li><i class="fa fa-fax fa-fw"></i> + 7 928 568-37-90</li>
+						<li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:tdpilomaterialy@gmail.com">tdpilomaterialy@gmail.com</a></li>
+					</ul>
+				</div>
+			</div>
+            <div class="divider"></div>
+			<ul class="sf-menu" id="menu">
+<li><a href="/" title="Главная">Главная</a></li>
+<li><a href="/{{ slug }}/cena-pilomateriala/" title="Прайс">Прайс</a></li>
+<li class="last"><a href="/kontakty/" title="Контакты">Контакты</a></li>
+</ul> 
+		</nav>
+	</div>
+</header>

@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static store_tags %}
+{% block header %}
+{% include 'location/includes/header.html' %}
+{% endblock header %}
+{% block secondary_nav %}
+			{% include 'location/includes/secondary_nav.html' %}	
+{% endblock secondary_nav %}
+
+{% block heading %}
+<div class="heading">
+    <h3><strong>Пиломатериалы</strong> <br>						
+    ТД «Пиломатериал Абакан» </h3>
+    
+<p>Торговый Дом «Пиломатериал {{ slug|get_name_location }}» предлагает ознакомиться с каталогом на сайте и купить 
+    пиломатериалы высокого качества на выгодных условиях. 
+    Большой выбор древесины различных пород, в том числе и термодревесины, 
+    готовые изделия для наружной и внутренней отделки жилых, 
+    нежилых помещений, малоэтажного строительства, удобное оформление 
+    доставки и оплаты – вот некоторые из преимуществ обращения к нам.</p>
+    
+    <div class="divider"></div>
+
+</div>
+    
+{% endblock heading %}
+{% block content_category %}
+    
+    {% for item in categories %}
+	<div class="row">
+        {% for i in item  %}
+           
+            {% if i is not None %}
+            <div class="grid_4">
+                <div class="box2 box2__modify offset1">
+                    <div class="proiz_pict">
+                        <span class="order"><a class="popup" href="#order-form"><i class="fa fa-check-square-o fa-lg"></i> Заказать</a></span>
+                        <img src="{{ i.image.url }}" alt="{{ i.name }}">
+                    </div>
+					
+                    <div class="caption">
+                        <h5 class="offset1">
+                            <a href="{% if slug_city %}/cites/{{ slug_city }}/{{ i.slug }}/{% else %}/location/{{slug }}/product/{{ i.slug }}/{% endif %}">{{ i.name }}</a> </h5>
+                        <p>{{i.description }}. </p>							
+                    </div>
+                    <div class="more">
+                        <a class="btn-prz" href="{% if slug_city %}/cites/{{ slug_city }}/{{ i.slug }}/{% else %}/location/{{slug }}/product/{{ i.slug }}/{% endif %}">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+           
+        {% endfor %}
+	</div>
+    {% endfor %}
+{% endblock content_category %}
+{% block service %}
+<div class="heading">
+<div class="service">
+	
+	{% for item in location %}
+	<h3>{{ item.region }}</h3>
+	{% endfor %}
+		<ul>
+			{% for item in cities %}
+				<li><i class="fa fa-map-marker fa-fw"></i> {% if item.slug %}<a href="/location/{{ slug }}/{{ item.slug }}/" title="ТД Пиломатериал {{ item.name }}">{{ item.name }} </a>{% else %}{{ item.name }}{% endif %}</li>
+			{% endfor %}
+		</ul>
+		{% if not item.slug %}
+			<p>
+				<a href="/location/{{ slug }}"><i class="fa fa-map-marker fa-fw"></i> ТД Пиломатериал {{ slug|get_name_location }}</a>
+			</p>
+		{% endif %}
+			
+	</div>
+					
+</div>
+	{% endblock service %}
+{% block detail_service %}
+<div class="row">
+	<div class="grid_12">
+	  <div class="heading">
+		  <div class="service">
+		  <h3>При покупке в ТД «Пиломатериал» в {{ name }} клиенты получают следующие выгоды:</h3>
+		  <ul>
+		  <li>Поставка качественных пиломатериалов для строительных, отделочных работ. Поставляем материалы, полностью соответствующие требованиям ГОСТ по влажности, геометрическим размерам, количеству естественных пороков древесины и другим параметрам. Перед отгрузкой проводится дополнительный визуальный контроль качества.</li>
+		  <li>Оптовая и розничная продажа. Работаем как с физическими, так и юридическими лицами – строительными бригадами, дизайн-студиями, дилерами. Индивидуальный подход и выгодные условия сотрудничества с каждым клиентом. Осуществляем поставки партиями любого объема.</li>
+		  <li>Дополнительные услуги. Поможем рассчитать необходимое количество пиломатериала, осуществляем распил древесины по требуемым размерам. </li>
+		  </ul>
+<p>Проконсультироваться с нашими менеджерами, уточнить стоимость, условия доставки и оплаты, оформить заявку на поставку пиломатериалов вы можете, отправив запрос онлайн на сайте или позвонив нам по указанному телефону.</p>						
+		  </div>
+	  </div>
+  </div>
+</div>
+			{% endblock detail_service %}
+
+			
+			{% block bg %}
+			<div class="bg">
+				<div class="wrapper3">
+					<div class="container">
+						<div class="row">
+							<div class="grid_12"> 
+								<div class="heading">
+					<h3 class="white">Отправьте заявку на сотрудничество</h3>
+				</div>
+				<div class="form-wrapper">
+					<form id="contact-form">
+		<label class="name">
+			<input type="text" name="name" placeholder="Ваше имя" required="">
+		</label>
+		<label class="email">
+			<input type="text" name="phone" placeholder="Телефон" required="">
+		</label>
+		<label class="message">
+			<textarea name="message" placeholder="Сообщение" required=""></textarea>
+		</label>
+		<input type="hidden" name="host" value="{{ name }}">
+		
+		<div class="btn-wrapper">
+			<button class="form-btn t__up" type="submit">Начать сотрудничать</button>
+		</div>
+	</form>
+								</div>
+							</div>	
+						</div>
+					</div>
+				</div>	
+			</div>
+				
+			{% endblock bg %}
+				
+    
+    

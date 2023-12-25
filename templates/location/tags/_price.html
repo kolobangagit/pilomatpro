@@ -1,0 +1,12 @@
+{% load store_tags %}
+   {% for item in products %}
+   <tr>
+    <td data-label="{{ slug_category|get_name_category }}">{{ item.name }}</td>
+    <td data-label="Толщина, мм"> {{item.hickness }}</td>
+    <td data-label="Ширина, мм"> {{ item.whidth }}</td>
+    <td data-label="Длина, м"> {{ item.height }} </td>
+    <td data-label="Цена 1 {{ unit_of_measurement }}, руб."> {{ item.price }}</td>
+    </tr>
+   {% endfor %}
+    
+   

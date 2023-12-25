@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static store_tags %}
+{% block header %}
+{% include 'location/includes/header.html' %}
+{% endblock header %}
+{% block secondary_nav %}
+			{% include 'location/includes/secondary_nav.html' %}	
+{% endblock secondary_nav %}
+{% block heading %}
+<div class="heading"> 
+
+        {{ slug_category|get_name_category }} | 
+        <a href="/location/{% if slug %}{{ slug }}{% else %}{{ slug_city|get_location_with_city }}{% endif %}/" title="Вернуться Назад">Вернуться Назад <---</a>
+      <h3><strong> {{ slug_category|get_name_category }}</strong> <br>						
+        ТД Пиломатериал {% if slug %} {{ slug|get_name_location }}{% else %} {{ slug_city|get_city_name }} {% endif %}</h3>
+        
+        <div class="divider"></div>
+                        </div>
+{% endblock heading %}
+{% block service %}
+	{% sub_category %}				
+{% endblock service %}

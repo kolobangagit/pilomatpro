@@ -1,0 +1,26 @@
+{% load store_tags %}
+
+<div class="box3">
+    {% for item in sub_categories %}
+    <h4>{{ item.name }}</h4>
+    <p>{{ item.description }}</p>
+    <p>{{ item.description_appointment}}</p><br>
+    <table class="heading">
+        <thead>
+        <tr>
+        <th> {{ item.name }} </th>
+        <th> Толщина, мм</th>
+        <th> Ширина, мм</th>
+        <th> Длина, м</th>
+        <th> Цена 1 {{ item.unit_of_measurement }}, руб.</th>
+        </tr>
+        </thead>
+        <tbody>
+         {% price item.unit_of_measurement slug_category item.slug %}
+          
+        </tbody>
+        </table>
+        <br><br>
+       
+    {% endfor %}
+        </div>

@@ -1,0 +1,39 @@
+{% load static store_tags %}
+<div class="cd-secondary-nav">
+	<nav>
+		<div id="cd-logo">
+			<a href="{{ host }}"><img style="width: 60px;z-index: 10;" src="{% static 'img/logo.png'%}" alt="Logo"></a>
+			<p>ТД Пиломатериал </p>
+		</div>
+		<ul>
+			<li>
+				<a href="/">
+					<b>Главная</b>
+					<span><i class="fa fa-home fa-2x"></i></span><!-- icon -->
+				</a>
+			</li>
+			<li>
+				<a href="/{{ slug }}/cena-pilomateriala/">
+					<b>Прайс</b>
+					<span><i class="fa fa-cogs fa-2x"></i></span><!-- icon -->
+				</a>
+			</li>
+			
+			{% comment %}
+				<li>
+				<a href="{{ host}}/kontakty/">
+					<b>Контакты</b>
+					<span><i class="fa fa-user fa-2x"></i></span><!-- icon -->
+				</a>
+			</li>
+			{% endcomment %}
+				
+			<li>
+				<a style="color:rgb(243, 55, 44)" href="tel: + 7 928 568-37-90">
+					<b style="color:#fff;border-bottom:1px dashed #fff;font-size:18px;">  + 7 928 568-37-90</b>
+					<span><i class="fa fa-phone fa-2x"></i></span><!-- icon -->
+				</a>
+			</li>
+		</ul>
+	</nav>
+</div>

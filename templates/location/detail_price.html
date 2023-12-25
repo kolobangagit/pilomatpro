@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static store_tags %}
+{% block header %}
+{% include 'location/includes/header.html' %}
+{% endblock header %}
+{% block secondary_nav %}
+			{% include 'location/includes/secondary_nav.html' %}	
+{% endblock secondary_nav %}
+
+{% block heading %}
+<div class="heading">
+    <h3><strong>Цена на пиломатериал</strong> <br>						
+        ТД «Пиломатериал {{ slug|get_name_location }}» </h3>
+    <div class="divider"></div>
+</div>
+   
+{% endblock heading %}
+{% block service %}
+
+    {% for item in categories %}
+        {% sub_price item.slug %}
+    {% endfor %}
+				
+{% endblock service %}
