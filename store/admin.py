@@ -44,3 +44,7 @@ class AdminSubCategory(admin.ModelAdmin):
 class AdminProducts(admin.ModelAdmin):
     list_display = ('name', 'slug','price')
     prepopulated_fields = {"slug": ("name",)}
+
+@admin.register(YandexMetrica)
+class AdminYandexMetrica(admin.ModelAdmin):
+    list_display = ('counter_id')

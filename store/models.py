@@ -12,7 +12,7 @@ class Locations(models.Model):
 		verbose_name_plural = 'Областной центер'
 
 
-	name = models.CharField(max_length=50, blank=True, null=True)
+	name = models.CharField(max_length=50, blank=True, null=True, verbose_name='Областной центер')
 	slug = models.SlugField(max_length=255, null=False, unique=True)
 	region = models.CharField(max_length=50, blank=True, null=True)
 
@@ -34,7 +34,7 @@ class City(models.Model):
 		verbose_name = 'Районные центры'
 		verbose_name_plural = 'Районные центры'
 
-	name = models.CharField(max_length=50, blank=True, null=True)
+	name = models.CharField(max_length=50, blank=True, null=True, verbose_name='Районные центры')
 	slug = models.SlugField(max_length=255, null=False, unique=True)
 	region = models.CharField(max_length=50, blank=True, null=True)
 	location = models.ForeignKey('Locations', on_delete=models.CASCADE, 
@@ -49,7 +49,8 @@ class Village(models.Model):
 		verbose_name = 'Населенный пункт'
 		verbose_name_plural = 'Населенный пункт'
 
-	name = models.CharField(max_length=50, blank=True, null=True)
+	name = models.CharField(max_length=50, blank=True, null=True, 
+	verbose_name='Населенный пункт')
 	city = models.ForeignKey('City', on_delete=models.CASCADE, 
 	null=True, blank=True)
 
@@ -121,3 +122,10 @@ class Products(models.Model):
             return Products.objects.filter(sub_category=sub_category_id)
         else:
             return Products.get_all_products()
+
+
+class YandexMetrica(models.Model):
+	counter_id = models.PositiveIntegerField(blank=True, null=True, verbose_name='Яндекс Метрика')
+
+	def __str__(self):
+		return self.name
