@@ -126,6 +126,9 @@ class Products(models.Model):
 
 class YandexMetrica(models.Model):
 	counter_id = models.PositiveIntegerField(blank=True, null=True, verbose_name='Яндекс Метрика')
-
+	clickmap = models.BooleanField(default=True)
+	trackLinks = models.BooleanField(default=True)
+	accurateTrackBounce = models.BooleanField(default=True)
+    
 	def __str__(self):
-		return self.name
+		return str(self.counter_id)

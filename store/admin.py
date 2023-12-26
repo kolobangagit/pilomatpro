@@ -47,4 +47,4 @@ class AdminProducts(admin.ModelAdmin):
 
 @admin.register(YandexMetrica)
 class AdminYandexMetrica(admin.ModelAdmin):
-    list_display = ('counter_id')
+    list_display = ('counter_id',)
