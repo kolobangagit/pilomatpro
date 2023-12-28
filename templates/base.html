@@ -29,54 +29,28 @@
 </head>
 <body style>
   <div class="page">
-	<h1>PPPPPP {{ counter_id }}</h1>
-      
-	  {% block header %}
-		
-	  {% endblock header %}
-		
-	{% block secondary_nav %}
-		{% endblock secondary_nav %}
+	  {% block header %}{% endblock header %}	
+	{% block secondary_nav %}{% endblock secondary_nav %}
 		
     <section id="content">
       <div class="container">
         <div class="wrapper1 wrapper1__inset1">
           <div class="row">
             <div class="grid_12">
-			 {% block heading %}
-				
-			 {% endblock heading %}
-
+			 {% block heading %}{% endblock heading %}
             </div>
-
           </div>
-		  {% block content_category %}
-				{% endblock content_category %}
+		  {% block content_category %}{% endblock content_category %}
           <div class="row">
             <div class="grid_12">
-              
-                
-				{% block service %}
-					
-				{% endblock service %}
-					
-
-              
+				{% block service %}{% endblock service %}
             </div>
-
           </div>
-            
-			{% block detail_service %}
-				
-			{% endblock detail_service %}
-				
+			{% block detail_service %}{% endblock detail_service %}	
         </div>
-
       </div>
 	  
-	  {% block bg %}
-		
-	  {% endblock bg %}
+	  {% block bg %} {% endblock bg %}
 		
 
     </section>
@@ -118,11 +92,15 @@
 	$(document).ready(function() {
 		$(".popup").magnificPopup();
 
-		$("#contact-form, #order-form").submit(function() {
+		$("#contact-form, #order-form").submit(function(e) {
+			e.preventDefault();
+			data = $(this).serialize()
+			console.log(data);
 			$.ajax({
 				type: "POST",
-				url: "https://td-pilomaterial.ru/mail.php",
-				data: $(this).serialize()
+				url: "",
+				data: data,
+
 			}).done(function() {
 				$(this).find("input").val("");
 				alert("Спасибо за выбор нашей компании! Скоро мы с Вами свяжемся.");
