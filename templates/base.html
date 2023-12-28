@@ -97,8 +97,9 @@
 				url: "/send-info/",
 				data: {
 					phone: phone,
-					name: name;
-					message: message
+					name: name,
+					message: message,
+					csrfmiddlewaretoken: csrfmiddlewaretoken.val()
 				},
 
 			}).done(function() {
