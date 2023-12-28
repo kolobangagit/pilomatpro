@@ -2,68 +2,10 @@ function include(url) {
     document.write('<script src="' + url + '"></script>');
     return false;
 }
-
-/* cookie.JS
- ========================================================*/
-include('https://td-pilomaterial.ru/assets/js/jquery.cookie.js');
-
-
-/* DEVICE.JS
- ========================================================*/
-include('https://td-pilomaterial.ru/assets/js/device.min.js');
-
-/* Easing library
- ========================================================*/
-include('https://td-pilomaterial.ru/assets/js/jquery.easing.1.3.js');
-
-
-/* ToTop
- ========================================================*/
-include('https://td-pilomaterial.ru/assets/js/jquery.ui.totop.js');
-$(function () {
-    $().UItoTop({ easingType: 'easeOutQuart' });
-});
-
-
-/* DEVICE.JS AND SMOOTH SCROLLIG
- ========================================================*/
-include('https://td-pilomaterial.ru/assets/js/jquery.mousewheel.min.js');
-// include('js/jquery.simplr.smoothscroll.min.js');
-// $(function () {
-//     if ($('html').hasClass('desktop')) {
-//         $.srSmoothscroll({
-//             step: 25,
-//             speed: 400
-//         });
-//     }
-// });
-
-/* videoBG
- ========================================================*/
-// include('js/video/jquery.videoBG.js');
-// $(function () {
-//     if ($('html').hasClass('desktop')) {
-//         $('.only-video').videoBG({
-//             mp4: 'video/header.mp4',
-//             webm: 'video/header.webm',
-//             poster: 'video/header.jpg',
-//             scale: true,
-//             zIndex: 0
-//         });
-//     }
-// });
-
-/* Copyright Year
- ========================================================*/
 var currentYear = (new Date).getFullYear();
 $(document).ready(function () {
     $("#copyright-year").text((new Date).getFullYear());
 });
-
-
-/* Superfish menu
- ========================================================*/
-include('https://td-pilomaterial.ru/assets/js/superfish.js');
 
 
 /* Orientation tablet fix
