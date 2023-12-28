@@ -8,6 +8,7 @@
     </div>
     <div class="form-wrapper">
         <form id="contact-form">
+            {% csrf_token %}
 <label class="name">
 <input type="text" name="name" placeholder="Ваше имя" required="">
 </label>
