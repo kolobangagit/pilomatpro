@@ -5,7 +5,7 @@
 		<nav class="header-menu">
 			<div class="logo">
 				<div class="header_adress">
-					<a href="{{ host}}/{{ slug }}"><img src="{% static 'img/logo.png'%}" alt="ТД Пиломатериал  {% if slug %} {{ slug|get_name_location }}{% else %} {{ slug_city|get_city_name }} {% endif %}"></a>
+					<a href="{{ host}}/{% if slug %}{{ slug }}{% else %}{{ slug_city|get_location_with_city }}{% endif %}"><img src="{% static 'img/logo.png'%}" alt="ТД Пиломатериал  {% if slug %} {{ slug|get_name_location }}{% else %} {{ slug_city|get_city_name }} {% endif %}"></a>
 					<p>ТД «Пиломатериал» </p> 
 					<ul>
 						<li><i class="fa fa-map-marker fa-fw"></i> {% if slug %} {{ slug|get_name_location }}{% else %} {{ slug_city|get_city_name }} {% endif %},  </li>
@@ -17,7 +17,7 @@
             <div class="divider"></div>
 			<ul class="sf-menu" id="menu">
 <li><a href="/" title="Главная">Главная</a></li>
-<li><a href="/{{ slug }}/cena-pilomateriala/" title="Прайс">Прайс</a></li>
+<li><a href="/{% if slug %}{{ slug }}{% else %}{{ slug_city|get_location_with_city }}{% endif %}/cena-pilomateriala/" title="Прайс">Прайс</a></li>
 <li class="last"><a href="/kontakty/" title="Контакты">Контакты</a></li>
 </ul> 
 		</nav>
