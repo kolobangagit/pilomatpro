@@ -179,8 +179,9 @@ def send_bot_info(request):
     if request.method == 'POST' and request.is_ajax():
         phone = request.POST.get('phone', None)
         name = request.POST.get('name', None)
+        location = request.POST.get('location', None)
         mes = request.POST.get('message', None)
-        message = f'{NAME_OWNER}\n Заказ с сайта pilomatpro.ru\n Телефон: {phone} \n Имя: {name} \n Сообщение: \n {mes}'
+        message = f'{NAME_OWNER}\n Заказ с сайта pilomatpro.ru\n Город: {location} \n Телефон: {phone} \n Имя: {name} \n Сообщение: \n {mes}'
         data = {
             "chat_id": 6746800266,
             "text": message,

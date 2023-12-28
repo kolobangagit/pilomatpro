@@ -90,6 +90,7 @@
 			e.preventDefault();
 			let phone = $("#contact-form input[name='phone']").val();
 			let name = $("#contact-form input[name='name']").val();
+			let location = $("#contact-form input[name='host']").val();
 			let message = $("#contact-form textarea[name=message]").val();
             let csrfmiddlewaretoken = $('input[name=csrfmiddlewaretoken]');
 			$.ajax({
@@ -99,7 +100,9 @@
 					phone: phone,
 					name: name,
 					message: message,
-					csrfmiddlewaretoken: csrfmiddlewaretoken.val()
+					csrfmiddlewaretoken: csrfmiddlewaretoken.val(),
+					location: location
+
 				},
 
 			}).done(function() {
