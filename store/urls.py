@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import Index, LocationDetailVIew, CityDetailView, CategoryDetailView, LocationAllPrice
+from .utils import send_bot_info
 
 urlpatterns = [
     path('', Index.as_view(), name='homepage'),
@@ -12,4 +13,5 @@ urlpatterns = [
     path('cites/<slug:slug_city>/<slug:slug_category>/', CategoryDetailView.as_view(), 
           name='location_city_product'),
     path('<slug:slug>/cena-pilomateriala/', LocationAllPrice.as_view(), name="location_all_price"),  
+    path('send-info/', send_bot_info, name="send_bot_info"),
 ]

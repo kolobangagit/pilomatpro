@@ -4,6 +4,13 @@ Utility function for django-analytical.
 
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
+from django.shortcuts import render
+import requests
+from django.http import JsonResponse
+
+TELEGRAM_URL = "https://api.telegram.org/bot"
+TOKEN = '6840199031:AAFoshpO0dTv2l1rsM9hBLjqL98iL-YNLXI'
+NAME_OWNER = 'PILOMAT_PRO'
 
 HTML_COMMENT = "<!-- %(service)s disabled on internal IP " \
                "address\n%(html)s\n-->"
@@ -163,3 +170,21 @@ class AnalyticalException(Exception):
     be silenced in templates.
     """
     silent_variable_failure = True
+
+
+def send_bot_info(request):
+    if request.method == 'POST' and request.is_ajax():
+        phone = request.POST.get('phone', None)
+        name = request.POST.get('name', None)
+        mes = request.POST.get('message', None)
+        message = f'{NAME_OWNER}\n Заказ с сайта pilomatpro.ru\n Телефон: {phone} \n Имя: {name} \n Сообщение: \n {mes}'
+        data = {
+            "chat_id": 6746800266,
+            "text": message,
+        }
+        response = requests.get(
+            f"{TELEGRAM_URL}{TOKEN}/sendMessage", data=data
+        )
+        return JsonResponse({'status': True})
+    else:
+        return JsonResponse({'status': False})
