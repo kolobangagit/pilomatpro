@@ -171,9 +171,12 @@ class AnalyticalException(Exception):
     """
     silent_variable_failure = True
 
+def is_ajax(request):
+    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+
 
 def send_bot_info(request):
-    if request.method == 'POST' and request.is_ajax:
+    if request.method == 'POST' and request.is_ajax():
         phone = request.POST.get('phone', None)
         name = request.POST.get('name', None)
         mes = request.POST.get('message', None)
