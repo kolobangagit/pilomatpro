@@ -18,7 +18,7 @@
 <label class="message">
 <textarea name="message" placeholder="Сообщение" required=""></textarea>
 </label>
-<input type="hidden" name="host" value="{{ name }}">
+<input type="hidden" name="host" value=" {% if slug %} {{ slug|get_name_location }}{% else %} {{ slug_city|get_city_name }} {% endif %}">
 
 <div class="btn-wrapper">
 <button class="form-btn t__up" type="submit">Начать сотрудничать</button>
